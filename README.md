@@ -1,5 +1,5 @@
 # Alkalmazások fejlesztése nagybeadandó (2017/18 I. félév):
-### Movierent - Internetes filmkölcsönző alkalmazás
+### Movierent - Internetes filmkölcsönző alkalmazás (Holczmann István és Bicsák Dániel)
 
 #### 1. Feladat szöveges leírása:
 > Egy filmtéka alkalmazása, melynek segítségével lehet kölcsönözni filmeket. Az alkalmazás lehetőséget biztosít a téka adatbázisában nem található filmek igénylésére. Emellett az adatbázisban található filmek összehasonlítására és értékelésére is van lehetőség.
