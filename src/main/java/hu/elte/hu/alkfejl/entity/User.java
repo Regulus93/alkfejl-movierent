@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -39,4 +40,7 @@ public class User extends BaseEntity {
     public enum Role {
         USER, ADMINISTRATOR, SUPERUSER
     }
+
+    @OneToMany(mappedBy = "senderUser")
+    private List<Request> requests;
 }
