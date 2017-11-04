@@ -43,4 +43,10 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "senderUser")
     private List<Request> requests;
+
+    @OneToMany(mappedBy = "rater")
+    private List<Request> ratings;
+
+    @OneToMany(mappedBy = "loaner")
+    private List<Request> loans;
 }

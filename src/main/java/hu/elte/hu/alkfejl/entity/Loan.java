@@ -1,6 +1,5 @@
 package hu.elte.hu.alkfejl.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import java.util.Date;
 
 @Entity
@@ -17,23 +15,24 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Rate extends BaseEntity{
+public class Loan extends BaseEntity{
 
+    //user
     @Column(nullable = false)
-    private Date rateAdded;
+    @JoinColumn(name = "USER_ID")
+    private User loaner;
 
+    //movie
     @Column(nullable = false)
-    @JoinColumn(name="MOVIE_ID")
-    private Movie movie;
+    @JoinColumn(name = "MOVIE_ID")
+    private Movie loanedMovie;
 
+    //loanStart
     @Column(nullable = false)
-    @Lob
-    private String opinion;
+    private Date loanStart;
 
+    //loanEnd
     @Column(nullable = false)
-    private int pointValue;
+    private Date loanEnd;
 
-    @Column(nullable = false)
-    @JoinColumn(name="USER_ID")
-    private User rater;
 }
