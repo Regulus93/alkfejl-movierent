@@ -16,6 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Actor extends BaseEntity{
 
+    @Column(nullable = false)
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
     private List<Movie> movies;

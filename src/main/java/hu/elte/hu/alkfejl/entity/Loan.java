@@ -17,21 +17,17 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 public class Loan extends BaseEntity{
 
-    //user
     @Column(nullable = false)
     @JoinColumn(name = "USER_ID")
     private User loaner;
 
-    //movie
     @Column(nullable = false)
     @JoinColumn(name = "MOVIE_ID")
     private Movie loanedMovie;
 
-    //loanStart
     @Column(nullable = false)
     private Date loanStart;
 
-    //loanEnd
     @Column(nullable = false)
     private Date loanEnd;
 

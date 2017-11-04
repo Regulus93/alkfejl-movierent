@@ -37,5 +37,9 @@ public class Movie extends BaseEntity{
     @ManyToMany(mappedBy = "movies")
     private List<Actor> actors;
 
+    @Column(nullable = false)
+    @ManyToMany(mappedBy = "loanedMovie")
+    private List<Loan> loans;
+
 
 }

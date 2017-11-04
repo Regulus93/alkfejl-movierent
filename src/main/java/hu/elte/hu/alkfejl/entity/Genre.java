@@ -20,6 +20,7 @@ public class Genre extends BaseEntity{
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     @OneToMany(mappedBy = "genre")
     private List<Movie> movies;
 }

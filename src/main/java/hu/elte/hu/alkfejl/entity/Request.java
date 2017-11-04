@@ -17,21 +17,17 @@ import javax.persistence.ManyToOne;
 @EqualsAndHashCode(callSuper = true)
 public class Request extends BaseEntity {
 
-    //user - many to one
     @Column(nullable = false)
     @ManyToOne
     @JoinColumn(name="USER_ID")
     private User senderUser;
 
-    //title
     @Column(nullable = false)
     private String title;
 
-    //year
     @Column(nullable = false)
     private int year;
 
-    //director
     @Column(nullable = false)
     private String director;
 
