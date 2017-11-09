@@ -1,4 +1,3 @@
-
 # Alkalmazások fejlesztése nagybeadandó (2017/18 I. félév):
 ### Movierent - Internetes filmkölcsönző alkalmazás (Holczmann István és Bicsák Dániel)
 
