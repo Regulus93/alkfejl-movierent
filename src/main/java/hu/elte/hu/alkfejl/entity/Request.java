@@ -18,9 +18,7 @@ import javax.persistence.ManyToOne;
 public class Request extends BaseEntity {
 
     @Column(nullable = false)
-    @ManyToOne
-    @JoinColumn(name="USER_ID")
-    private User senderUser;
+    private String director;
 
     @Column(nullable = false)
     private String title;
@@ -28,7 +26,7 @@ public class Request extends BaseEntity {
     @Column(nullable = false)
     private int year;
 
-    @Column(nullable = false)
-    private String director;
-
+    @JoinColumn(name="USER_ID")
+    @ManyToOne
+    private User senderUser;
 }

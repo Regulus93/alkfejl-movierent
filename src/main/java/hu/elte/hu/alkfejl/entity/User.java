@@ -16,6 +16,14 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity {
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public enum Role {
+        GUEST, USER, ADMIN
+    }
+
     @Column(nullable = false)
     private String name;
 
@@ -24,7 +32,7 @@ public class User extends BaseEntity {
 
     @Column(name="passw"
             ,nullable = false)
-    @Transient
+//    @Transient
     private String password;
 
     @Column(nullable = false, unique = true)
@@ -33,20 +41,15 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private Date birthday;
 
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    public enum Role {
-        USER, ADMINISTRATOR, SUPERUSER
-    }
-
+    @Column(nullable = false)
     @OneToMany(mappedBy = "senderUser")
     private List<Request> requests;
 
+    @Column(nullable = false)
     @OneToMany(mappedBy = "rater")
     private List<Rate> ratings;
 
+    @Column(nullable = false)
     @OneToMany(mappedBy = "loaner")
     private List<Loan> loans;
 }

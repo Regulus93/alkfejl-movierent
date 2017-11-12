@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
 import java.util.List;
@@ -29,8 +28,8 @@ public class Movie extends BaseEntity{
     @Lob
     private String description;
 
-    @Column(nullable = false)
     @JoinColumn(name = "GENRE_ID")
+    @ManyToOne
     private Genre genre;
 
     @Column(nullable = false)
@@ -38,8 +37,12 @@ public class Movie extends BaseEntity{
     private List<Actor> actors;
 
     @Column(nullable = false)
-    @ManyToMany(mappedBy = "loanedMovie")
+    @OneToMany(mappedBy = "loanedMovie")
     private List<Loan> loans;
+
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "ratedMovie")
+    private List<Rate> rates;
 
 
 }

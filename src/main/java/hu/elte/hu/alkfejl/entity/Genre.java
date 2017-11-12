@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
 
@@ -20,7 +21,6 @@ public class Genre extends BaseEntity{
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     @OneToMany(mappedBy = "genre")
     private List<Movie> movies;
 }

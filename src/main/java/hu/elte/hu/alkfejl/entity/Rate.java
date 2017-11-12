@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -22,9 +19,9 @@ public class Rate extends BaseEntity{
     @Column(nullable = false)
     private Date rateAdded;
 
-    @Column(nullable = false)
     @JoinColumn(name="MOVIE_ID")
-    private Movie movie;
+    @ManyToOne
+    private Movie ratedMovie;
 
     @Column(nullable = false)
     @Lob
@@ -33,7 +30,7 @@ public class Rate extends BaseEntity{
     @Column(nullable = false)
     private int pointValue;
 
-    @Column(nullable = false)
     @JoinColumn(name="USER_ID")
+    @ManyToOne
     private User rater;
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
@@ -17,12 +18,12 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 public class Loan extends BaseEntity{
 
-    @Column(nullable = false)
     @JoinColumn(name = "USER_ID")
+    @ManyToOne
     private User loaner;
 
-    @Column(nullable = false)
     @JoinColumn(name = "MOVIE_ID")
+    @ManyToOne
     private Movie loanedMovie;
 
     @Column(nullable = false)
