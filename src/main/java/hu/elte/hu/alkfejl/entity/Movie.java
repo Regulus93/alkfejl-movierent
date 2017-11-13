@@ -1,5 +1,6 @@
 package hu.elte.hu.alkfejl.entity;
 
+import hu.elte.hu.alkfejl.enumtypes.MovieStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -44,5 +45,8 @@ public class Movie extends BaseEntity{
     @OneToMany(mappedBy = "ratedMovie")
     private List<Rate> rates;
 
+    @Column(columnDefinition = "VARCHAR(255) default 'AVAILABLE'")
+    @Enumerated(EnumType.STRING)
+    private MovieStatus status;
 
 }

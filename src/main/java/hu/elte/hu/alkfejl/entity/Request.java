@@ -1,14 +1,12 @@
 package hu.elte.hu.alkfejl.entity;
 
+import hu.elte.hu.alkfejl.enumtypes.RequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -29,4 +27,8 @@ public class Request extends BaseEntity {
     @JoinColumn(name="USER_ID")
     @ManyToOne
     private User senderUser;
+
+    @Column(columnDefinition = "VARCHAR(255) default 'UNCOMPLETED'")
+    @Enumerated(EnumType.STRING)
+    private RequestStatus status;
 }

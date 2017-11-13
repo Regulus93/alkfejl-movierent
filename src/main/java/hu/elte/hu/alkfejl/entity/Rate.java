@@ -1,6 +1,6 @@
 package hu.elte.hu.alkfejl.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
+import hu.elte.hu.alkfejl.enumtypes.RateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,4 +33,9 @@ public class Rate extends BaseEntity{
     @JoinColumn(name="USER_ID")
     @ManyToOne
     private User rater;
+
+    @Column(columnDefinition = "VARCHAR(255) default 'PUBLIC'")
+    @Enumerated(EnumType.STRING)
+    private RateStatus status;
+
 }

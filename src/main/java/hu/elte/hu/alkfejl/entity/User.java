@@ -1,5 +1,7 @@
 package hu.elte.hu.alkfejl.entity;
 
+import hu.elte.hu.alkfejl.enumtypes.UserRole;
+import hu.elte.hu.alkfejl.enumtypes.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,11 +20,11 @@ public class User extends BaseEntity {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private UserRole role;
 
-    public enum Role {
-        GUEST, USER, ADMIN
-    }
+    @Column(columnDefinition = "VARCHAR(255) default 'ACTIVE'")
+    @Enumerated(EnumType.STRING)
+    private UserStatus status;
 
     @Column(nullable = false)
     private String name;
