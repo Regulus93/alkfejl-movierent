@@ -1,5 +1,5 @@
 package hu.elte.hu.alkfejl.enumtypes;
 
-public enum UserStatus {
+public enum UserStatus { 
     ACTIVE, BLOCKED
 }
