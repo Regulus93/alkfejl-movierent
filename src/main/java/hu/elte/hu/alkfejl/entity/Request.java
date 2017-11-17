@@ -1,6 +1,6 @@
 package hu.elte.hu.alkfejl.entity;
 
-import hu.elte.hu.alkfejl.enumtypes.RequestStatus;
+import hu.elte.hu.alkfejl.enumtype.RequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

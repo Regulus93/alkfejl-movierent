@@ -1,6 +1,6 @@
 package hu.elte.hu.alkfejl.entity;
 
-import hu.elte.hu.alkfejl.enumtypes.RateStatus;
+import hu.elte.hu.alkfejl.enumtype.RateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

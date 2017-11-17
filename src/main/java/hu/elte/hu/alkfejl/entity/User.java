@@ -1,11 +1,12 @@
 package hu.elte.hu.alkfejl.entity;
 
-import hu.elte.hu.alkfejl.enumtypes.UserRole;
-import hu.elte.hu.alkfejl.enumtypes.UserStatus;
+import hu.elte.hu.alkfejl.enumtype.UserRole;
+import hu.elte.hu.alkfejl.enumtype.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -41,6 +42,7 @@ public class User extends BaseEntity {
     private String email;
 
     @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     @Column(nullable = false)
