@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import static hu.elte.hu.alkfejl.enumtype.UserRole.ADMIN;
+import static hu.elte.hu.alkfejl.enumtype.UserRole.SUPERUSER;
 import static hu.elte.hu.alkfejl.enumtype.UserRole.USER;
 
 @RestController
@@ -22,7 +23,7 @@ public class RequestController {
 //    Logic simple description: add new row to the requests table
 
     //TODO: Connect with session user
-    @Role({USER,ADMIN})
+    @Role({USER,ADMIN,SUPERUSER})
     @PostMapping("/askMovie")
     public ResponseEntity<Request> askMovie(@RequestBody Request request) {
         requestRepository.save(request);

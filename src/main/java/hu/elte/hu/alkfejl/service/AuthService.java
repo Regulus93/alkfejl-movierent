@@ -31,7 +31,7 @@ public class AuthService {
 
     public User login(User user) throws InvalidLoginException {
         if(isValid(user)){
-            return user;
+            return currentUser = userRepository.findByUsername(user.getUsername()).get();
         } else {
             throw new InvalidLoginException();
         }
