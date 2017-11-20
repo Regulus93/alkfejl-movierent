@@ -56,4 +56,13 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     @OneToMany(mappedBy = "loaner")
     private List<Loan> loans;
+
+    @Override
+    public String toString() {
+        return "User[id=" + super.getId()
+                + ", username=" + username
+                + ", name=" + name
+                + ", role=" + role
+                + "]";
+    }
 }

@@ -1,6 +1,7 @@
 package hu.elte.hu.alkfejl.interceptor;
 
 import hu.elte.hu.alkfejl.annotation.Role;
+import hu.elte.hu.alkfejl.dto.UserDTO;
 import hu.elte.hu.alkfejl.entity.User;
 import hu.elte.hu.alkfejl.enumtype.UserRole;
 import hu.elte.hu.alkfejl.service.AuthService;

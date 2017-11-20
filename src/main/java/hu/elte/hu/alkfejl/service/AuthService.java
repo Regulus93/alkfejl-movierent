@@ -1,9 +1,11 @@
 package hu.elte.hu.alkfejl.service;
 
 
+import hu.elte.hu.alkfejl.dto.UserDTO;
 import hu.elte.hu.alkfejl.entity.User;
 import hu.elte.hu.alkfejl.exception.InvalidLoginException;
 import hu.elte.hu.alkfejl.repository.UserRepository;
+import hu.elte.hu.alkfejl.util.DTO;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,16 +24,18 @@ public class AuthService {
     @Autowired
     private UserRepository userRepository;
 
-    public User register(User user){
-        user.setRole(USER);
-        user.setStatus(ACTIVE);
-        currentUser = userRepository.save(user);
+    public User register(@DTO(UserDTO.class) User user){
+        userRepository.save(user);
         return user;
     }
 
-    public User login(User user) throws InvalidLoginException {
+    public UserDTO login(User user) throws InvalidLoginException {
         if(isValid(user)){
-            return currentUser = userRepository.findByUsername(user.getUsername()).get();
+            currentUser = userRepository.findByUsername(user.getUsername()).get();
+            UserDTO responseDTO = new UserDTO();
+            responseDTO.setUsername(currentUser.getUsername());
+            responseDTO.setId(currentUser.getId());
+            return responseDTO;
         } else {
             throw new InvalidLoginException();
         }
