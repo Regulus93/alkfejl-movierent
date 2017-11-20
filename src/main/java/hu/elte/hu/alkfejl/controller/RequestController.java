@@ -1,8 +1,14 @@
 package hu.elte.hu.alkfejl.controller;
 
 import hu.elte.hu.alkfejl.annotation.Role;
+import hu.elte.hu.alkfejl.dto.RequestDTO;
 import hu.elte.hu.alkfejl.entity.Request;
+import hu.elte.hu.alkfejl.entity.User;
 import hu.elte.hu.alkfejl.repository.RequestRepository;
+import hu.elte.hu.alkfejl.service.AuthService;
+import hu.elte.hu.alkfejl.service.RequestService;
+import hu.elte.hu.alkfejl.service.UserService;
+import hu.elte.hu.alkfejl.util.DTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +24,12 @@ public class RequestController {
     @Autowired
     private RequestRepository requestRepository;
 
+    @Autowired
+    private AuthService authService;
+
+    @Autowired
+    private RequestService requestService;
+
 //    EndPoint name: askMovie
 //    Role: USER, ADMINISTRATOR, SUPERUSER
 //    Logic simple description: add new row to the requests table
@@ -25,11 +37,11 @@ public class RequestController {
     //TODO: Connect with session user
     @Role({USER,ADMIN,SUPERUSER})
     @PostMapping("/askMovie")
-    public ResponseEntity<Request> askMovie(@RequestBody Request request) {
-        requestRepository.save(request);
-        return ResponseEntity.ok(request);
+    public ResponseEntity<RequestDTO> askMovie(@DTO(RequestDTO.class) Request request) {
+        request.setSenderUser(authService.getCurrentUser());
+        RequestDTO responseDTO = requestService.askMovie(requestRepository.save(request));
+        return ResponseEntity.ok(responseDTO);
     }
-
 
 //    EndPoint name: requestCompleted
 //    Role: ADMINISTRATOR, SUPERUSER
