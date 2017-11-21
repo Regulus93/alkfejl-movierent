@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -15,13 +14,10 @@ public class RequestDTO {
     @Id
     private Long id;
 
-    @NotNull
     private String director;
 
-    @NotNull
     private String title;
 
-    @NotNull
     private int year;
 
     private String status;

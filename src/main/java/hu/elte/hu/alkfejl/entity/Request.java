@@ -31,4 +31,14 @@ public class Request extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(255) default 'UNCOMPLETED'")
     @Enumerated(EnumType.STRING)
     private RequestStatus status;
+
+    @Override
+    public String toString() {
+        return "Request[id=" + super.getId()
+                + ", director=" + director
+                + ", title=" + title
+                + ", year=" + year
+                + ", status=" + status
+                + "]";
+    }
 }

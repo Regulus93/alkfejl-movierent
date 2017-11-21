@@ -46,4 +46,9 @@ public class RequestController {
 //    EndPoint name: requestCompleted
 //    Role: ADMINISTRATOR, SUPERUSER
 //    Logic simple description: add new row to the requests table
+    @Role({ADMIN,SUPERUSER})
+    @PostMapping("/requestCompleted")
+    public ResponseEntity<RequestDTO> requestCompleted(@DTO(RequestDTO.class) Request request) {
+        return ResponseEntity.ok(requestService.makeRequestCompleted(request));
+    }
 }

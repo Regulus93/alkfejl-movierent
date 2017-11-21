@@ -3,6 +3,7 @@ INSERT INTO USER (ID, VERSION, BIRTHDAY, EMAIL, NAME, PASSW, ROLE, USERNAME) VAL
 INSERT INTO USER (ID, VERSION, BIRTHDAY, EMAIL, NAME, PASSW, ROLE, USERNAME) VALUES (3, 1, '1990-04-12', 'valaki@gmail.com', 'Peter Nagy', 'password', 'USER', 'Nagy');
 INSERT INTO USER (ID, VERSION, BIRTHDAY, EMAIL, NAME, PASSW, ROLE, USERNAME) VALUES (4, 1, '1990-04-12', 'almafa@fradi.hu', 'KG Béla', 'password', 'GUEST', 'asdasd');
 INSERT INTO USER (ID, VERSION, BIRTHDAY, EMAIL, NAME, PASSW, ROLE, USERNAME) VALUES (5, 1, '1992-01-12', 'korte@alma.com', 'No Name', 'password', 'GUEST', 'Dummy');
+INSERT INTO USER (ID, VERSION, BIRTHDAY, EMAIL, NAME, PASSW, ROLE, USERNAME) VALUES (6, 1, '1995-04-12', 'superuser@superuser.com', 'Superuser Name', 'password', 'SUPERUSER', 'superuser');
 
 INSERT INTO REQUEST (ID, VERSION, DIRECTOR, TITLE, YEAR, USER_ID) VALUES (1, 1, 'Dummy Director', 'Unknown movie', 1993, 1);
 INSERT INTO REQUEST (ID, VERSION, DIRECTOR, TITLE, YEAR, USER_ID) VALUES (2, 1, 'Zack Snyder', 'Justice League',2017, 1);
