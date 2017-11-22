@@ -43,10 +43,4 @@ public class RequestController {
     public ResponseEntity<RequestDTO> requestCompleted(@DTO(RequestDTO.class) Request request) {
         return ResponseEntity.ok(requestService.makeRequestCompleted(request));
     }
-
-    @Role({ADMIN,SUPERUSER})
-    @PostMapping("/requestUncompleted")
-    public ResponseEntity<RequestDTO> requestUncompleted(@DTO(RequestDTO.class) Request request) {
-        return ResponseEntity.ok(requestService.makeRequestUncompleted(request));
-    }
 }

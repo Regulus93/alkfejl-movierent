@@ -28,17 +28,9 @@ public class RequestService {
         if(RequestStatus.UNCOMPLETED == persistedRequest.getStatus()){
             persistedRequest.setStatus(RequestStatus.COMPLETED);
             requestRepository.save(persistedRequest);
+            //TODO: Insert completed movie to the database
         }
 
-        return createRequestResponse(persistedRequest);
-    }
-
-    public RequestDTO makeRequestUncompleted(Request request){
-        Request persistedRequest = requestRepository.findOne(request.getId());
-        if(RequestStatus.COMPLETED== persistedRequest.getStatus()){
-            persistedRequest.setStatus(RequestStatus.UNCOMPLETED);
-            requestRepository.save(persistedRequest);
-        }
         return createRequestResponse(persistedRequest);
     }
 
