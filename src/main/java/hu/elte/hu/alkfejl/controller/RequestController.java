@@ -30,11 +30,6 @@ public class RequestController {
     @Autowired
     private RequestService requestService;
 
-//    EndPoint name: askMovie
-//    Role: USER, ADMINISTRATOR, SUPERUSER
-//    Logic simple description: add new row to the requests table
-
-    //TODO: Connect with session user
     @Role({USER,ADMIN,SUPERUSER})
     @PostMapping("/askMovie")
     public ResponseEntity<RequestDTO> askMovie(@DTO(RequestDTO.class) Request request) {
@@ -43,12 +38,15 @@ public class RequestController {
         return ResponseEntity.ok(responseDTO);
     }
 
-//    EndPoint name: requestCompleted
-//    Role: ADMINISTRATOR, SUPERUSER
-//    Logic simple description: add new row to the requests table
     @Role({ADMIN,SUPERUSER})
     @PostMapping("/requestCompleted")
     public ResponseEntity<RequestDTO> requestCompleted(@DTO(RequestDTO.class) Request request) {
         return ResponseEntity.ok(requestService.makeRequestCompleted(request));
+    }
+
+    @Role({ADMIN,SUPERUSER})
+    @PostMapping("/requestUncompleted")
+    public ResponseEntity<RequestDTO> requestUncompleted(@DTO(RequestDTO.class) Request request) {
+        return ResponseEntity.ok(requestService.makeRequestUncompleted(request));
     }
 }

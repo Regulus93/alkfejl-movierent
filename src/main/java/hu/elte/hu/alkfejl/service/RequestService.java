@@ -30,17 +30,24 @@ public class RequestService {
             requestRepository.save(persistedRequest);
         }
 
+        return createRequestResponse(persistedRequest);
+    }
+
+    public RequestDTO makeRequestUncompleted(Request request){
+        Request persistedRequest = requestRepository.findOne(request.getId());
+        if(RequestStatus.COMPLETED== persistedRequest.getStatus()){
+            persistedRequest.setStatus(RequestStatus.UNCOMPLETED);
+            requestRepository.save(persistedRequest);
+        }
+        return createRequestResponse(persistedRequest);
+    }
+
+    private RequestDTO createRequestResponse(Request persistedRequest){
         RequestDTO requestResponse = new RequestDTO();
         requestResponse.setStatus(persistedRequest.getStatus().toString());
         requestResponse.setDirector(persistedRequest.getDirector());
         requestResponse.setTitle(persistedRequest.getTitle());
         requestResponse.setYear(persistedRequest.getYear());
-
         return requestResponse;
     }
-
-//    public RequestDTO makeRequestUncompleted(Request request){
-//
-//    }
-
 }
