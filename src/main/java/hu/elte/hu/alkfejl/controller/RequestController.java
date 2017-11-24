@@ -43,4 +43,22 @@ public class RequestController {
     public ResponseEntity<RequestDTO> requestCompleted(@DTO(RequestDTO.class) Request request) {
         return ResponseEntity.ok(requestService.makeRequestCompleted(request));
     }
+
+    @Role({USER,ADMIN,SUPERUSER})
+    @PostMapping("/revertRequest")
+    public ResponseEntity<RequestDTO> revertRequest() {
+        return null;
+    }
+
+    @Role({ADMIN,SUPERUSER})
+    @PostMapping("/getAllRequest")
+    public ResponseEntity<RequestDTO> getAllRequest() {
+        return null;
+    }
+
+    @Role({USER,ADMIN,SUPERUSER})
+    @PostMapping("/getUserRequests")
+    public ResponseEntity<RequestDTO> getUserRequests() {
+        return null;
+    }
 }
